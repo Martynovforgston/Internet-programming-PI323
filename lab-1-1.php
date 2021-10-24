@@ -1,5 +1,5 @@
 <?php
- $var1= '3';
+ $var1= '3'; 
  $var2 = 5;
  echo $var1 . ' - ' . gettype($var1) . '<br>';
  print ($var2 . ' - ' . gettype($var2) . '<br>');
