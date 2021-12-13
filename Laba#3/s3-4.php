@@ -17,7 +17,7 @@
     <?php
     if (isset($_POST["obr"])) {
         $s1 = $_POST["a"];
-        $logitn = array("Denis", "Gambarov");
+        $logitn = array("forgston", "Martynov");
         $answer;
         for ($i = 0; $i < count($logitn); $i++) {
             if ($s1 == $logitn[$i]) {
