@@ -23,9 +23,9 @@
 	 $cost = $st['cost'];
 	 }
 	print "<form action='save_editZayavka.php' metod='get'>";
-	print "Дата начала ремонта: <input name='data_begin' size='50' type='text'
+	print "Дата начала ремонта: <input name='data_begin' size='50' type='date'
 	value='".$data_begin."'>";
-	print "Дата конца: <input name='data_end' size='50' type='text'
+	print "Дата конца: <input name='data_end' size='50' type='date'
 	value='".$data_end."'>";
 	echo "<br> Холодильник :<select name='id_hol'>";
 		while ($row = mysqli_fetch_array($hol)) {
