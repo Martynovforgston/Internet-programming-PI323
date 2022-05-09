@@ -1,5 +1,4 @@
 // Код для 2-1
-
 function changeColor() {
 	var x = Math.floor(Math.random() * 256);
 	var y = Math.floor(Math.random() * 256);
@@ -9,7 +8,6 @@ function changeColor() {
 }
 
 // Код для 2-2
-
 $('#mainForm').submit(function (e) {
 	// Если есть ошибка, то выводим ее сообщение и закрашиваем рамку ввода
 	if ($('#username').val() == "") {
