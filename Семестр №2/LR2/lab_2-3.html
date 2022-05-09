@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мартынов В.Е.</title>
+</head>
+
+<body>
+    <img src="KISH.png" alt="КИШ" id="kish" width=100px height=100px>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).keydown(function (e) {
+            switch (e.keyCode) {
+                // Влево
+                case 37:
+                    console.log(1);
+                    $("#kish").animate({ marginLeft: '-=100px' });
+                    break;
+                // Вверх
+                case 38:
+                    $("#kish").animate({ marginTop: '-=100px' });
+                    break;
+                // Вправо                    
+                case 39:
+                    $("#kish").animate({ marginLeft: '+=100px' });
+                    break;
+                // Вниз
+                case 40:
+                    $("#kish").animate({ marginTop: '+=100px' });
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>
