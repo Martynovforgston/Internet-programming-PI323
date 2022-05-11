@@ -53,14 +53,12 @@
             let tek = $('.card').length;
 
             $.ajax({
-                url: 'getdata_3.php',               /* Куда пойдет запрос */
-                method: 'GET',                      /* Метод передачи (post или get) */
-                data: { kol: 5, tek: tek },         /* Параметры передаваемые в запросе. */
-                success: function (response) {      /* функция которая будет выполнена после успешного запроса.  */
-                    // Получаем данные в json
-                    var data = JSON.parse(response);
-                    // Добавляем посты в блок
-                    data.forEach(function(item) {
+                url: 'getdata_3.php',              
+                method: 'GET',                      
+                data: { kol: 5, tek: tek },
+                success: function (response) {     
+                              var data = JSON.parse(response);
+                                    data.forEach(function(item) {
                         $('#posts').append(`
                             <div class="card">
                                 <h2>${item.title}</h2>
