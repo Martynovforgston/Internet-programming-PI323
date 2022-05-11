@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мартынов В.Е.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h2>Альбомы группы Король и Шут</h2>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div id="posts">
+                <div class="card">
+                    <h2>Продавец кошмаров</h2>
+                    <div class="image"><img src="111.png" alt="photo"></div>
+                    <p>Продавец кошмаров</p>
+                </div>
+                <div class="card">
+                    <h2>Акустический альбом</h2>
+                    <div class="image"><img src="2.png" alt="photo"></div>
+                    <p>Акустический альбом</p>
+                </div>
+                <div class="card">
+                    <h2>Театръ демона</h2>
+                    <div class="image"><img src="3.png" alt="photo"></div>
+                    <p>Театръ демона</p>
+                </div>
+                <div class="card">
+                    <h2>Камнем по голове</h2>
+                    <div class="image"><img src="4.png" alt="photo"></div>
+                    <p>Камнем по голове</p>
+                </div>
+                <div class="card">
+                    <h2>Как в старой сказке</h2>
+                    <div class="image"><img src="5.png" alt="photo"></div>
+                    <p>Как в старой сказке</p>
+                </div>
+            </div>
+            <button id="load">Загрузить еще...</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $('#load').click(function() {
+            let tek = $('.card').length;
+
+            $.ajax({
+                url: 'getdata_3.php',               /* Куда пойдет запрос */
+                method: 'GET',                      /* Метод передачи (post или get) */
+                data: { kol: 5, tek: tek },         /* Параметры передаваемые в запросе. */
+                success: function (response) {      /* функция которая будет выполнена после успешного запроса.  */
+                    // Получаем данные в json
+                    var data = JSON.parse(response);
+                    // Добавляем посты в блок
+                    data.forEach(function(item) {
+                        $('#posts').append(`
+                            <div class="card">
+                                <h2>${item.title}</h2>
+                                <div class="image"><img src="6.png" alt="photo"></div>
+                                <p>${item.content}</p>
+                            </div>
+                        `);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
