@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мартынов В.Е.</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <style>
+   p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+     font-size: 30px;
+   }
+  </style>
+</head>
+
+<body>
+    <label for="array-size"><p>Кол-во элементов массива:</p></label>
+    <input type="number" id="array-size" value="100" min="1" style="height:40px; width:200px">
+    <div class="container">
+        <div id="for-plugin"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        (function ($) {
+            $.fn.myPlugin = function (options) {
+
+                var settings = $.extend({
+                    arraySize: 10,
+                }, options);
+
+                var array = [];
+
+                function generateArray() {
+                    array = [];
+                    for (var i = 0; i < settings.arraySize; i++) {
+                        array.push(Math.floor(Math.random() * 201) - 100);
+                    }
+                    return array;
+                }
+
+                function getMax() {
+                    var max = array[0];
+                    for (var i = 0; i < array.length; i++) {
+                        if (array[i] > max) {
+                            max = array[i];
+                        }
+                    }
+                    return max;
+                }
+
+                function getMin() {
+                    var min = array[0];
+                    for (var i = 0; i < array.length; i++) {
+                        if (array[i] < min) {
+                            min = array[i];
+                        }
+                    }
+                    return min;
+                }
+
+                $(this).append('<p id="array">Массив: ' + generateArray() + '</p>');
+                $(this).append('<p id="min">Минимальный элемент массива: '   +  getMin() + '</p>');
+                $(this).append('<p id="max">Максимальный элемент массива: ' + getMax() + '</p>');
+                $(this).append('<button style="height: 40px; width: 200px; background-color: lightgrey;" button id="upd">Обновить массив</button>');
+
+                $(this).on('click', '#upd', function () {
+                    settings.arraySize = $('#array-size').val();
+                    $('#array').text('Массив: ' + generateArray());
+                    $('#min').text('Минимальный элемент массива: ' + getMin());
+                    $('#max').text('Максимальный элемент массива: ' + getMax());
+                });
+            };
+
+            $("#for-plugin").myPlugin({
+                arraySize: $("#array-size").val()
+            });
+        }(jQuery));
+    </script>
+</body>
+
+</html>
