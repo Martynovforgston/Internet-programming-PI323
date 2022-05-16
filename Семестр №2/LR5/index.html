@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <label for="array-size"><p>Кол-во элементов массива:</p></label>
+    <label for="array-size"><p>Количество значений массива:</p></label>
     <input type="number" id="array-size" value="100" min="1" style="height:40px; width:200px">
     <div class="container">
         <div id="for-plugin"></div>
@@ -63,15 +63,15 @@
                 }
 
                 $(this).append('<p id="array">Массив: ' + generateArray() + '</p>');
-                $(this).append('<p id="min">Минимальный элемент массива: '   +  getMin() + '</p>');
-                $(this).append('<p id="max">Максимальный элемент массива: ' + getMax() + '</p>');
+                $(this).append('<p id="min">Минимальный элемент массива = '   +  getMin() + '</p>');
+                $(this).append('<p id="max">Максимальный элемент массива = ' + getMax() + '</p>');
                 $(this).append('<button style="height: 40px; width: 200px; background-color: lightgrey;" button id="upd">Обновить массив</button>');
 
                 $(this).on('click', '#upd', function () {
                     settings.arraySize = $('#array-size').val();
                     $('#array').text('Массив: ' + generateArray());
-                    $('#min').text('Минимальный элемент массива: ' + getMin());
-                    $('#max').text('Максимальный элемент массива: ' + getMax());
+                    $('#min').text('Минимальный элемент массива = ' + getMin());
+                    $('#max').text('Максимальный элемент массива = ' + getMax());
                 });
             };
 
